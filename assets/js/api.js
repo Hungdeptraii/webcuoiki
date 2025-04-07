@@ -911,6 +911,10 @@ app.get('/admin/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../', req.path));
 });
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../', req.path.replace('swiper/swiper', 'swiper').replace('swiper\\swiper', 'swiper')));
+});
+
 // Start server
 app.listen(PORT, () => {
   console.log(`API server đang chạy tại http://localhost:${PORT}`);
